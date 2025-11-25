@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "ShuttleAppFinal",
+    "slug": "shuttle-service-app",
+    "version": "1.0.0",
+    "sdkVersion": "48.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "orientation": "portrait",
+    "extra": {
+      "eas": {
+        "projectId": "06ba25c1-cf55-479e-a0aa-e06ee75b6c4c"
+      }
+    },
+    "owner": "team-something"
+  }
+}
