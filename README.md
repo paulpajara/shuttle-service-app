@@ -38,14 +38,14 @@ git checkout -b <type>/<area>/<descriptive-title>
 
 Where:
 - type = feature, bugfix, chore, style, refactor, etc.
-- area = the part of the project you’re working on (e.g., frontend, backend, passenger, driver, auth)
-- descriptive-title = short, readable summary (kebab-case)
+- area = the part of the project you’re working on (e.g., frontend, backend)
+- descriptive-title = short, readable summary (kebab-case), and for end users = endUser + short, readable summary (kebab-case)
 
 **Examples**
 
 - If you're working on the frontend processing for the Passenger page:
 ```
-git checkout -b feature/frontend/passenger/page-processing
+git checkout -b feature/frontend/passenger-page-processing
 ```
 b. The branch type must match the change you are working on
 
