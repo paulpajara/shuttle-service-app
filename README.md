@@ -103,6 +103,16 @@ git checkout -b chore/remove-unused-imports
    ```
    npm start
    ```
+6. Frontend Testing (w/ Expo)
+   ```
+   npm run exp
+   ```
+   **important: wont run in expo go due to deprecated native library support**
+
+   to switch to dev build (only once you run npm run expo; the instructions are in the cmd line anyway)
+   ```
+   s
+   ```
 
 ## Endpoints
 - POST /api/auth/register
