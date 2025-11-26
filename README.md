@@ -112,9 +112,194 @@ git checkout -b chore/remove-unused-imports
 - GET /api/admin/driver-applications
 - POST /api/admin/driver-applications/:id/approve
 - GET /api/trips
-- GET /api/trips/:id/eta
-- GET /api/trips/:id/eta-segmented
-- POST /api/rides
-- GET /api/rides
-- POST /api/rides/:id/board
-- POST /api/rides/:id/complete
+
+## TODO
+1. Passenger Features **(High Priority)**
+1.1 Ride Status Views
+
+ - Add screen to show current ride status (Waiting → Assigned → Boarded → Completed)
+
+ - Listen for ride socket events:
+   ```
+   ride:booked
+   ```
+   ```
+   ride:boarded 
+   ```
+   ```
+   ride:completed
+   ```
+ - Update UI state automatically when events are received
+
+1.2 Trip Filtering (Required in Requirements)
+
+ - Add filter UI (time picker / dropdown)
+
+ - Filter /api/trips by:
+
+   - departure time range
+
+   - earliest / latest
+
+   - nearby campus zones (optional)
+
+1.3 Improved Trip Detail Map
+
+ - Add shuttle direction/heading rotation
+
+ - Add recenter button
+
+ - Show distance to next stop
+
+ - Show estimated arrival time countdown (live)
+
+ - Improve marker icons (shuttle icon, stop icons)
+
+1.4 Driver & Shuttle Info
+
+ - Display driver name
+
+ - Display shuttle identifier
+
+ - Display number of passengers boarded / waiting (optional)
+
+2. Driver Features **(High Priority)**
+2.1 Passenger List Screen
+
+ - Add screen showing passengers booked for current trip
+   ```
+   Endpoint: GET /api/rides?tripId=<tripId>
+
+2.2 Boarding Workflow
+
+ - Add UI for “Board Passenger”
+
+ - Call endpoint:
+   ```
+   PATCH /api/rides/:rideId/board
+
+ - Update local state + emit socket events
+
+2.3 Completing Ride
+
+ - Add UI for “Complete Ride”
+
+ - Call endpoint:
+   ```
+   PATCH /api/rides/:rideId/complete
+
+ - Handle auto-trip-complete event from backend
+
+2.4 Driver Live Map
+
+ - Add map showing:
+
+   - route path
+
+   - stops
+
+   - driver location
+
+   - passenger pickup points (optional)
+
+3. Admin Dashboard **(Medium Priority)**
+3.1 Manage Routes
+
+ - List routes
+
+ - Add/edit/delete routes
+
+ - Add/edit/remove route stops
+
+3.2 Manage Trips
+
+ - View trip schedules
+
+ - Create trip with:
+
+   - route
+
+   - driver
+
+   - departure time
+
+   - Edit/delete trips
+
+3.3 Manage Users
+
+ - View users
+
+ - Edit user role/status
+
+ - Delete user accounts
+
+ - Reset passwords (optional)
+
+4. Notifications UX **(Medium Priority)**
+4.1 Foreground Notification Handling
+
+ - Add listener:
+   ```
+   Notifications.addNotificationReceivedListener
+
+ - Display in-app banner for:
+
+   - shuttle arrival alerts
+
+   - ride completed
+
+4.2 Notification Actions
+
+ - Open Trip Detail or Ride Status screen when notification tapped
+   (addNotificationResponseReceivedListener)
+
+4.3 Push Token Refresh Strategy
+
+ - Re-register token on AppState change (already done)
+
+ - Handle Expo “DeviceNotRegistered” errors (backend response)
+
+5. Core App Improvements **(Medium / Low Priority)**
+5.1 Loading & Error UI
+
+ - Replace alert() with custom toast/snackbar
+
+ - Add global error boundary
+
+ - Add global loading overlay (context-driven)
+
+5.2 Environment Setup 
+
+ - Support .env files for API URL
+
+ - Dev / Prod build configs
+
+ - Detect local IP automatically when on WiFi (optional)
+
+5.3 Caching & Performance
+
+ - Cache trips locally (AsyncStorage)
+
+ - Cache route static data (stops, names)
+
+ - Reduce map rerenders (memoization + smoother shuttle animation)
+
+6. **Optional** Enhancements
+
+ - Passenger “Next Shuttle” widget
+
+ - Multi-device driver mode (fallback GPS)
+
+ - Animated shuttle movement interpolation
+
+ Offline mode (view cached trips/routes)
+ ```
+   GET /api/trips/:id/eta
+   GET /api/trips/:id/eta-segmented
+   POST /api/rides
+   GET /api/rides
+   POST /api/rides/:id/board
+   POST /api/rides/:id/complete
+```
+
+**!!!NOTE!: THE BACKEND ALREADY SUPPORTS ALL OF THESE FRONTEND INTEGRATIONS**
