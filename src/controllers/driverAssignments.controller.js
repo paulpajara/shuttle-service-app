@@ -31,5 +31,5 @@ exports.startTrip = async (req, res) => {
     console.error('startTrip', err);
     res.status(500).json({ error: 'Server error' });
   }
-});
+};
 
