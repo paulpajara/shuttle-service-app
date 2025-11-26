@@ -84,6 +84,7 @@ git checkout -b chore/remove-unused-imports
 ```
 
 ## Setup
+**install Node.js from the net**
 1. Run this script inside the project root directory of whichever code editor u use
    ```
    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
@@ -94,12 +95,13 @@ git checkout -b chore/remove-unused-imports
    npm install
    ```
 4. Start MongoDB locally or use Atlas.
-5. Seed sample users:
+   - configure the .env file after you get your URI
+6. Seed sample users:
    ```
    npm run seed
    ```
    will upload later for backend testing
-6. Start server:
+7. Start server:
    ```
    npm run dev
    ```
@@ -107,13 +109,13 @@ git checkout -b chore/remove-unused-imports
    ```
    npm start
    ```
-7. Frontend Testing (w/ Expo)
+8. Frontend Testing (w/ Expo)
    ```
    npm run exp
    ```
    **important: wont run in expo go due to deprecated native library support**
 
-   to switch to dev build (only once you run npm run expo; the instructions are in the cmd line anyway)
+   to switch to dev build (only once you run 'npm run' expo; the instructions are in the cmd line anyway)
    ```
    s
    ```
@@ -126,6 +128,12 @@ git checkout -b chore/remove-unused-imports
 - GET /api/admin/driver-applications
 - POST /api/admin/driver-applications/:id/approve
 - GET /api/trips
+- GET /api/trips/:id/eta
+- GET /api/trips/:id/eta-segmented
+- POST /api/rides
+- GET /api/rides
+- POST /api/rides/:id/board
+- POST /api/rides/:id/complete
 
 ## TODO
 1. Passenger Features **(High Priority)**
