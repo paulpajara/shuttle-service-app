@@ -84,18 +84,22 @@ git checkout -b chore/remove-unused-imports
 ```
 
 ## Setup
-1. Copy `.env.example` to `.env` and fill values (MONGO_URI, JWT_SECRET).
-2. Install deps:
+1. Run this script inside the project root directory of whichever code editor u use
+   ```
+   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+   ```
+   **note: this is only temporary and u will need to run it again once you close ur code editor (for safety reasons this is the most secure setup)**
+3. Install deps:
    ```
    npm install
    ```
-3. Start MongoDB locally or use Atlas.
-4. Seed sample users:
+4. Start MongoDB locally or use Atlas.
+5. Seed sample users:
    ```
    npm run seed
    ```
    will upload later for backend testing
-5. Start server:
+6. Start server:
    ```
    npm run dev
    ```
@@ -103,7 +107,7 @@ git checkout -b chore/remove-unused-imports
    ```
    npm start
    ```
-6. Frontend Testing (w/ Expo)
+7. Frontend Testing (w/ Expo)
    ```
    npm run exp
    ```
